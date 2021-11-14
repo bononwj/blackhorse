@@ -3,7 +3,7 @@ import { getAuctions } from "@/services/auction"
 import { useCallback, useEffect, useState } from "react"
 import * as auctionsStorage from '@/storage/auctions'
 
-interface Item {
+export interface Item {
   id: string
   title: string
   desc: string

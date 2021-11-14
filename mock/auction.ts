@@ -1,7 +1,6 @@
 import Mock, { Random } from 'mockjs';
 
 export default {
-  'POST /auction-requests/proposals': { a: 123 },
   'GET /auction-requests/proposals': (req: any, res: any) => {
     const {
       type = 'all',
@@ -87,10 +86,40 @@ export default {
     )
   },
 
-  // support customized functions，please refer to express@4 for more details of the API
-  'POST /api/users/create': (_req: any, res: { setHeader: (arg0: string, arg1: string) => void; end: (arg0: string) => void; }) => {
-    // add cors header
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.end('ok');
+  'GET /autions/450000200202142526': (req: any, res: any) => {
+    // res.end(
+    //   JSON.stringify(
+    //     Mock.mock({
+    //       id: '450000200202142526',
+    //       title: () => Mock.mock('@title'),
+    //       desc: () => Mock.mock('@paragraph(2)'),
+    //       [`cover|${5}`]: [() => Random.image('200x100')],
+    //       startingPrice: () => Mock.mock({ "number|1000-10000": 100}).number,
+    //       diffPrice: () => Mock.mock({ "number|10-100": 100}).number,
+    //     })
+    //   )
+    // )
+    res.end(
+      JSON.stringify(
+        Mock.mock({
+          id: '450000200202142526',
+          startingPrice: 1200,
+          lowestPrice: 1430,
+          diffPrice: 50,
+          lastTime: "19:35:33",
+          [`list|${3}`]: [
+            {
+              username: () => Mock.mock('@title'),
+              time: () => "19:34:33",
+              price: () => 1380,
+            }
+          ]
+        })
+      )
+    )
+    // res.end(
+    //   JSON.stringify({ error: "查询失败", message: "网络错误" }
+    //   )
+    // )
   },
 }

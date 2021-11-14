@@ -42,7 +42,7 @@ export default function IndexPage() {
         <div className={styles.tab}>Costume</div>
       </div>
       {
-        !isError ?
+        isError ?
         <div className={styles.error}>网络不给力，请稍后试试</div> :
         <div className={styles.cards}>
           {

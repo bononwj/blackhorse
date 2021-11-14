@@ -47,7 +47,7 @@ export default function IndexPage() {
         <div className={styles.cards}>
           {
             items.map((item: Item) => {
-              return <div className={styles.card}>
+              return <div className={styles.card} key={item.id}>
                 <img src={item.cover} alt="" className={styles.cover} />
                 <div className={styles.info}>
                   <div className={styles.title}>{item.title}</div>
